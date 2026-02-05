@@ -1,0 +1,259 @@
+/* Finances Page */
+.finances-page {
+    padding: 2rem;
+    padding-bottom: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.finances-header {
+    margin-bottom: 2rem;
+}
+
+.finances-header h1 {
+    color: #F0F0DB;
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.finances-subtitle {
+    color: #137FEC;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Summary Cards */
+.finances-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.summary-card {
+    background-color: #0F172A;
+    border: 2px solid #137FEC;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(19, 127, 236, 0.3);
+}
+
+.summary-card h3 {
+    color: #F0F0DB;
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-card .amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.amount.positive {
+    color: #22c55e;
+}
+
+.amount.negative {
+    color: #ef4444;
+}
+
+.amount.neutral {
+    color: #F0F0DB;
+}
+
+/* Finances List */
+.finances-list {
+    margin-top: 2rem;
+}
+
+.finances-list h2 {
+    color: #F0F0DB;
+    font-size: 2rem;
+    margin: 0 0 1.5rem 0;
+}
+
+/* No Finances Message */
+.no-finances {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #0F172A;
+    border-radius: 12px;
+    border: 2px dashed #137FEC;
+}
+
+.no-finances p {
+    color: #F0F0DB;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.no-finances span {
+    color: #137FEC;
+    font-size: 1rem;
+}
+
+/* Finances Grid */
+.finances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Finance Card */
+.finance-card {
+    background-color: #0F172A;
+    border: 2px solid #137FEC;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.finance-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(19, 127, 236, 0.3);
+}
+
+.finance-card-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #137FEC;
+}
+
+.finance-card-header h3 {
+    color: #F0F0DB;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.event-date {
+    color: #137FEC;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Finance Inputs */
+.finance-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    color: #F0F0DB;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: 0.75rem;
+    border: 2px solid #137FEC;
+    border-radius: 8px;
+    background-color: #101922;
+    color: #F0F0DB;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #1069c4;
+}
+
+.input-group input::placeholder {
+    color: rgba(240, 240, 219, 0.4);
+}
+
+/* Finance Balance */
+.finance-balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.finance-balance.positive {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 2px solid #22c55e;
+}
+
+.finance-balance.positive span {
+    color: #22c55e;
+}
+
+.finance-balance.positive strong {
+    color: #22c55e;
+}
+
+.finance-balance.negative {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 2px solid #ef4444;
+}
+
+.finance-balance.negative span {
+    color: #ef4444;
+}
+
+.finance-balance.negative strong {
+    color: #ef4444;
+}
+
+.finance-balance.neutral {
+    background-color: rgba(240, 240, 219, 0.1);
+    border: 2px solid #F0F0DB;
+}
+
+.finance-balance.neutral span {
+    color: #F0F0DB;
+}
+
+.finance-balance.neutral strong {
+    color: #F0F0DB;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .finances-page {
+        padding: 1rem;
+    }
+
+    .finances-header h1 {
+        font-size: 2rem;
+    }
+
+    .finances-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .finances-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .finance-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card .amount {
+        font-size: 2rem;
+    }
+}

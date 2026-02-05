@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #101922;
+  color: #F0F0DB;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.main-content.has-events {
+  overflow-y: auto;
+}
+
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+.main-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+

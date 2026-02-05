@@ -1,0 +1,53 @@
+/* Sidebar */
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #101922;
+  color: #F0F0DB;
+  border-right: 3px solid #0F172A;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.side-nav li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.side-nav a {
+  color: #F0F0DB;
+  text-decoration: none;
+}
+
+/* Create Button */
+.create-btn {
+  background-color: #137FEC;
+  color: #F0F0DB;
+  border: 2px solid #137FEC;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.create-btn:hover {
+  background-color: #1069c4;
+  border-color: #1069c4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(19, 127, 236, 0.5);
+}
+
+.create-btn:active {
+  transform: translateY(-1px);
+}
