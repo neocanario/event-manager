@@ -37,7 +37,7 @@ export function Footer() {
                             <a href="https://www.linkedin.com/in/joel-sanchez-dev/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <FaLinkedin />
                             </a>
-                            <a href="https://figma.com" aria-label="Figma" target="_blank" rel="noopener noreferrer">
+                            <a href="https://taps-yang-99607121.figma.site/" aria-label="Figma" target="_blank" rel="noopener noreferrer">
                                 <FaFigma />
                             </a>
                         </div>

@@ -2,8 +2,8 @@
 
 A comprehensive web application for managing and organizing events with an integrated calendar, financial tracking, and event listing features.
 
-![Event Manager](https://img.shields.io/badge/React-18.3.1-blue)
-![Vite](https://img.shields.io/badge/Vite-7.3.1-purple)
+![Event Manager](https://img.shields.io/badge/React-19.2.0-blue)
+![Vite](https://img.shields.io/badge/Vite-7.2.4-purple)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## 📋 Description
@@ -55,8 +55,8 @@ The design was inspired by modern event management platforms with a focus on:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd event-proyet
+git clone https://github.com/neocanario/event-manager.git
+cd event-manager
 ```
 
 2. Install dependencies:
@@ -77,19 +77,19 @@ http://localhost:5173
 ## 📁 Project Structure
 
 ```
-event-proyet/
+event-manager/
 ├── public/              # Static assets
 ├── src/
-│   ├── components/      # Reusable components
-│   │   ├── EventModal/  # Event creation modal
-│   │   ├── footer/      # Footer component
-│   │   ├── header/      # Header component
-│   │   └── sidebar/     # Sidebar navigation
+│   ├── assets/         # Images and static files
+│   ├── components/     # Reusable components
+│   │   ├── EventModal/ # Event creation modal
+│   │   ├── footer/     # Footer component
+│   │   ├── header/     # Header component
+│   │   └── sidebar/    # Sidebar navigation
 │   ├── pages/          # Page components
 │   │   ├── events/     # Events list page
 │   │   ├── finances/   # Financial management page
-│   │   ├── home/       # Home page with calendar
-│   │   └── legal/      # Legal pages (Terms, Privacy, Cookies)
+│   │   └── home/       # Home page with calendar
 │   ├── context/        # React Context for state management
 │   │   ├── EventContext.jsx
 │   │   └── eventContextInstance.js
@@ -97,32 +97,31 @@ event-proyet/
 │   │   └── useEvents.js
 │   ├── App.jsx         # Main app component
 │   ├── App.css         # Global styles
+│   ├── index.css       # Root styles
 │   └── main.jsx        # Entry point
 ├── index.html
 ├── package.json
 ├── vite.config.js
+├── eslint.config.js
 └── README.md
 ```
 
 ## ✨ Features
 
-- ✅ **Event Creation**: Create events with title, date, time, and description
-- ✅ **Calendar View**: Interactive calendar with event indicators
-- ✅ **Event Management**: View, filter, and delete events
+- ✅ **Event Creation**: Create events with title, date, time, location, and description
+- ✅ **Calendar View**: Interactive calendar with event indicators showing event count per day
+- ✅ **Event Management**: View, filter, and delete events with ease
 - ✅ **Financial Tracking**: Manage budgets and expenses per event
-- ✅ **Data Persistence**: Events saved in browser's LocalStorage
-- ✅ **Responsive Design**: Works on mobile, tablet, and desktop
-- ✅ **Dark Theme**: Modern dark mode interface
-- ✅ **Legal Pages**: Terms, Privacy Policy, and Cookies Policy
+- ✅ **Data Persistence**: Events automatically saved in browser's LocalStorage
+- ✅ **Responsive Design**: Fully responsive - works seamlessly on mobile, tablet, and desktop
+- ✅ **Dark Theme**: Modern dark mode interface for comfortable viewing
+- ✅ **Real-time Updates**: Instant synchronization across all views
 
 ## 🎯 Available Pages
 
-- **Home** (`/` or `/home`) - Calendar view and event details
-- **Events** (`/events`) - Complete list of events with filters
-- **Finances** (`/finances`) - Budget and expense tracking
-- **Terms** (`/terms`) - Terms and Conditions
-- **Privacy** (`/privacy`) - Privacy Policy
-- **Cookies** (`/cookies`) - Cookies Policy
+- **Home** (`/` or `/home`) - Interactive calendar view with event details and quick stats
+- **Events** (`/events`) - Complete list of all events with search and filter capabilities
+- **Finances** (`/finances`) - Budget and expense tracking for all events
 
 ## 🎨 Color Palette
 
@@ -141,13 +140,13 @@ event-proyet/
 
 ## 🔧 Technologies Used
 
-- **React 18.3.1** - UI library
-- **Vite 7.3.1** - Build tool and dev server
-- **React Router DOM** - Client-side routing
-- **React Calendar** - Calendar component
-- **React Icons** - Icon library
-- **CSS3** - Styling with Flexbox and Grid
-- **LocalStorage API** - Data persistence
+- **React 19.2.0** - Modern UI library with latest features
+- **Vite 7.2.4** - Lightning-fast build tool and dev server
+- **React Router DOM 7.13.0** - Declarative client-side routing
+- **React Calendar 6.0.0** - Interactive calendar component
+- **React Icons 5.5.0** - Comprehensive icon library
+- **CSS3** - Modern styling with Flexbox and Grid layouts
+- **LocalStorage API** - Persistent data storage in browser
 
 ## 📝 Scripts
 
