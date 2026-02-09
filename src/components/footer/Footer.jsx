@@ -16,16 +16,6 @@ export function Footer() {
                     </div>
 
                     <div className="footer-section">
-                        <h4 className="footer-heading">Legal</h4>
-                        <ul className="footer-links">
-                            <li><Link to="/terms">Términos y Condiciones</Link></li>
-                            <li><Link to="/privacy">Política de Privacidad</Link></li>
-                            <li><Link to="/cookies">Política de Cookies</Link></li>
-                            <li><a href="#accesibilidad">Accesibilidad</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-section">
                         <h4 className="footer-heading">Recursos</h4>
                         <ul className="footer-links">
                             <li><a href="#ayuda">Centro de Ayuda</a></li>

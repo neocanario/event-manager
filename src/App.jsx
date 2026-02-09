@@ -6,9 +6,6 @@ import { Sidebar } from './components/sidebar/Sidebar';
 import { Home } from './pages/home/Home';
 import { Events } from './pages/events/Events';
 import { Finances } from './pages/finances/Finances';
-import { TermsConditions } from './pages/legal/TermsConditions';
-import { PrivacyPolicy } from './pages/legal/PrivacyPolicy';
-import { CookiesPolicy } from './pages/legal/CookiesPolicy';
 import { Footer } from './components/footer/Footer';
 import { EventProvider } from './context/EventContext';
 
@@ -32,9 +29,6 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/finances" element={<Finances />} />
-            <Route path="/terms" element={<TermsConditions />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/cookies" element={<CookiesPolicy />} />
           </Routes>
 
         </div>
