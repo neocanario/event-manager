@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState } from "react";
 import './Sidebar.css';
-import { EventModal } from "../EventModal/EventModal";
+import { EventModal } from "../event-modal/EventModal";
 import { useEvents } from "../../hooks/useEvents";
 
 export function Sidebar () {

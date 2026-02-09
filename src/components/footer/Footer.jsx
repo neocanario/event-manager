@@ -10,23 +10,31 @@ export function Footer() {
                     <div className="footer-section">
                         <h3 className="footer-title">Event Manager</h3>
                         <p className="footer-description">
-                            Tu plataforma profesional para la gestión de eventos. 
-                            Simplifica, organiza y gestiona tus eventos de manera eficiente.
+                            Your professional platform for event management. 
+                            Simplify, organize, and manage your events efficiently.
                         </p>
                     </div>
 
                     <div className="footer-section">
-                        <h4 className="footer-heading">Recursos</h4>
+                        <h4 className="footer-heading">Navigation</h4>
                         <ul className="footer-links">
-                            <li><a href="#ayuda">Centro de Ayuda</a></li>
-                            <li><a href="#docs">Documentación</a></li>
-                            <li><a href="#blog">Blog</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
+                            <li><Link to="/home">Home</Link></li>
+                            <li><Link to="/events">Events</Link></li>
+                            <li><Link to="/finances">Finances</Link></li>
                         </ul>
                     </div>
 
                     <div className="footer-section">
-                        <h4 className="footer-heading">Síguenos</h4>
+                        <h4 className="footer-heading">Resources</h4>
+                        <ul className="footer-links">
+                            <li><a href="https://github.com/neocanario/event-manager" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                            <li><a href="https://taps-yang-99607121.figma.site/" target="_blank" rel="noopener noreferrer">Figma Design</a></li>
+                            <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React Documentation</a></li>
+                        </ul>
+                    </div>
+
+                    <div className="footer-section">
+                        <h4 className="footer-heading">Follow Us</h4>
                         <div className="social-links">
                             <a href="https://github.com/neocanario" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                                 <FaGithub />
@@ -46,7 +54,8 @@ export function Footer() {
 
                 <div className="footer-bottom">
                     <p className="footer-copyright">
-                        © 2026 Event Manager. Todos los derechos reservados.
+                        © 2026 Event Manager. All rights reserved. 
+                        <span className="footer-legal"> | Privacy Policy | Cookies | Terms</span>
                     </p>
                 </div>
             </div>

@@ -45,6 +45,8 @@ The design was inspired by modern event management platforms with a focus on:
 - Intuitive navigation
 - Clear visual hierarchy
 
+**[View Figma Design →](https://taps-yang-99607121.figma.site/)**
+
 ## 🚀 Installation and Setup
 
 ### Prerequisites
@@ -82,7 +84,7 @@ event-manager/
 ├── src/
 │   ├── assets/         # Images and static files
 │   ├── components/     # Reusable components
-│   │   ├── EventModal/ # Event creation modal
+│   │   ├── event-modal/ # Event creation modal
 │   │   ├── footer/     # Footer component
 │   │   ├── header/     # Header component
 │   │   └── sidebar/    # Sidebar navigation
