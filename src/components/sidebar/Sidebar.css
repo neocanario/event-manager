@@ -8,6 +8,7 @@
   color: #F0F0DB;
   border-right: 3px solid #0F172A;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
 }
 
 .side-nav ul {
@@ -24,6 +25,17 @@
 .side-nav a {
   color: #F0F0DB;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.side-nav a:hover {
+  background-color: #0F172A;
+  color: #137FEC;
 }
 
 /* Create Button */
@@ -39,6 +51,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  width: 100%;
 }
 
 .create-btn:hover {
@@ -50,4 +63,69 @@
 
 .create-btn:active {
   transform: translateY(-1px);
+}
+
+/* Responsive Sidebar */
+@media (max-width: 1024px) {
+  .sideBar {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 3px solid #0F172A;
+    padding: 15px 20px;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .side-nav {
+    flex: 1;
+  }
+
+  .side-nav ul {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0;
+    flex-wrap: wrap;
+  }
+
+  .side-nav li {
+    padding: 0;
+  }
+
+  .create-btn {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .sideBar {
+    flex-direction: column;
+    padding: 15px;
+    gap: 1rem;
+  }
+
+  .side-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .side-nav a {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .create-btn {
+    width: 100%;
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sideBar {
+    padding: 10px;
+  }
+
+  .side-nav a {
+    font-size: 0.9rem;
+  }
 }

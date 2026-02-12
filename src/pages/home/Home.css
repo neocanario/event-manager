@@ -59,24 +59,7 @@
   margin: 0;
 }
 
-/* Old card styles (can be removed if not used) */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: #1E293B;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 20vh;
-  width: 20vw;
-  margin: 20px;
-  color: #F0F0DB;
-}
-
+/* Calendar Section */
 .calendar-section {
   width: 100%;
   max-width: 900px;
@@ -259,10 +242,49 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .stats-section {
+    padding: 0 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .calendar-section {
+    padding: 0 15px 2rem 15px;
+  }
+}
+
 @media (max-width: 768px) {
+  .stats-section {
+    padding: 0 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.25rem;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+  }
+
   .calendar-section {
     width: 100%;
-    padding: 0 10px;
+    padding: 0 10px 2rem 10px;
+  }
+
+  .calendar-content h2 {
+    font-size: 1.5rem;
   }
 
   .Calendar {
@@ -274,6 +296,11 @@
     font-size: 0.9rem;
   }
 
+  .Calendar .react-calendar__navigation button {
+    font-size: 1rem;
+    min-width: 40px;
+  }
+
   .event-indicator {
     width: 16px;
     height: 16px;
@@ -282,5 +309,67 @@
 
   .events-list {
     padding: 1rem;
+  }
+
+  .events-list h3 {
+    font-size: 1.2rem;
+  }
+
+  .event-card h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    margin: 15px auto 0;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .stat-icon {
+    font-size: 1.75rem;
+    min-width: 40px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-title {
+    font-size: 0.85rem;
+  }
+
+  .calendar-section {
+    margin: 15px auto;
+  }
+
+  .calendar-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .Calendar {
+    padding: 8px;
+  }
+
+  .Calendar .react-calendar__month-view__days__day {
+    height: 45px;
+    font-size: 0.85rem;
+  }
+
+  .Calendar .react-calendar__navigation button {
+    font-size: 0.95rem;
+    height: 45px;
+  }
+
+  .Calendar .react-calendar__month-view__weekdays {
+    font-size: 0.75rem;
+  }
+
+  .event-card {
+    padding: 0.75rem;
   }
 }

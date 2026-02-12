@@ -232,28 +232,141 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .finances-page {
+    padding: 1.5rem;
+  }
+
+  .finances-summary {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .finances-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
-    .finances-page {
-        padding: 1rem;
-    }
+  .finances-page {
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
 
-    .finances-header h1 {
-        font-size: 2rem;
-    }
+  .finances-header h1 {
+    font-size: 2rem;
+  }
 
-    .finances-summary {
-        grid-template-columns: 1fr;
-    }
+  .finances-subtitle {
+    font-size: 1rem;
+  }
 
-    .finances-grid {
-        grid-template-columns: 1fr;
-    }
+  .finances-summary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 
-    .finance-inputs {
-        grid-template-columns: 1fr;
-    }
+  .summary-card {
+    padding: 1.5rem;
+  }
 
-    .summary-card .amount {
-        font-size: 2rem;
-    }
+  .summary-card .amount {
+    font-size: 2rem;
+  }
+
+  .finances-list h2 {
+    font-size: 1.75rem;
+  }
+
+  .finances-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .finance-card {
+    padding: 1.25rem;
+  }
+
+  .finance-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .finance-balance {
+    font-size: 1.1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .finances-page {
+    padding: 0.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .finances-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .finances-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .finances-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .summary-card {
+    padding: 1.25rem;
+  }
+
+  .summary-card h3 {
+    font-size: 1rem;
+  }
+
+  .summary-card .amount {
+    font-size: 1.75rem;
+  }
+
+  .finances-list h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .finance-card {
+    padding: 1rem;
+  }
+
+  .finance-card-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .event-date {
+    font-size: 0.9rem;
+  }
+
+  .input-group label {
+    font-size: 0.85rem;
+  }
+
+  .input-group input {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+
+  .finance-balance {
+    font-size: 1rem;
+    padding: 0.85rem;
+  }
+
+  .no-finances p {
+    font-size: 1.3rem;
+  }
+
+  .no-finances span {
+    font-size: 0.95rem;
+  }
 }

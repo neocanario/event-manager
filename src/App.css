@@ -1,19 +1,24 @@
+/* App Layout */
 body {
   margin: 0;
   padding: 0;
   background-color: #101922;
   color: #F0F0DB;
+  overflow-x: hidden;
 }
 
 .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 .app-container {
   display: flex;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .main-content {
@@ -21,19 +26,69 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 100vh;
-}
-
-.main-content.has-events {
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
+/* Scrollbar Styling */
 .main-content::-webkit-scrollbar {
-  display: none;
+  width: 8px;
 }
 
-.main-content {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.main-content::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #137FEC;
+  border-radius: 4px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #1069c4;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .main-content {
+    scrollbar-width: thin;
+    scrollbar-color: #137FEC #0F172A;
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .app-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    max-height: none;
+    min-height: calc(100vh - 200px);
+  }
+
+  .main-content::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-wrapper {
+    min-height: 100dvh;
+  }
+
+  .app-container,
+  .main-content {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 

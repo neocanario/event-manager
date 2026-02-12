@@ -1,0 +1,54 @@
+/* CSS Variables - Design System */
+:root {
+  /* Colors */
+  --color-primary: #137FEC;
+  --color-primary-hover: #1069c4;
+  --color-bg-dark: #101922;
+  --color-bg-darker: #0F172A;
+  --color-bg-card: #1E293B;
+  --color-text-light: #F0F0DB;
+  --color-text-gray: #9CA3AF;
+  --color-border: #137FEC;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 20px rgba(19, 127, 236, 0.3);
+  --shadow-primary: 0 4px 12px rgba(19, 127, 236, 0.4);
+  
+  /* Font Sizes */
+  --font-xs: 0.85rem;
+  --font-sm: 0.9rem;
+  --font-base: 1rem;
+  --font-lg: 1.1rem;
+  --font-xl: 1.3rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 1.8rem;
+  --font-4xl: 2rem;
+  --font-5xl: 2.5rem;
+  
+  /* Max Widths */
+  --max-width-sm: 900px;
+  --max-width-md: 1200px;
+  --max-width-lg: 1400px;
+}
