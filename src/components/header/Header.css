@@ -94,6 +94,10 @@ header {
   cursor: default;
 }
 
+.rss-icon {
+  color: #FF6B35;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   header {

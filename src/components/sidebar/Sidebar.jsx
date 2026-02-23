@@ -10,7 +10,6 @@ export function Sidebar () {
 
     const handleCreateEvent = (eventData) => {
         addEvent(eventData);
-        console.log('Nuevo evento creado:', eventData);
         setIsModalOpen(false);
     };
 

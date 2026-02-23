@@ -1,6 +1,6 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
-import { FaBell, FaEnvelope, FaUser, FaCalendarAlt } from 'react-icons/fa';
+import { FaBell, FaEnvelope, FaUser, FaCalendarAlt, FaRss } from 'react-icons/fa';
 
 export function Header () {
     return (
@@ -30,6 +30,12 @@ export function Header () {
                             <Link to="/events" className='nav-link'>
                                 <FaUser className='nav-icon' />
                                 <span>Usuarios</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/rss" className='nav-link'>
+                                <FaRss className='nav-icon rss-icon' />
+                                <span>RSS</span>
                             </Link>
                         </li>
                     </ul>

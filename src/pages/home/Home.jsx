@@ -1,21 +1,22 @@
-import { useState, useEffect } from 'react';
-import Calendar from 'react-calendar'
+import { useState, useEffect, useMemo } from 'react';
+import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Home.css';
 import { useEvents } from '../../hooks/useEvents';
 import { FaCalendarCheck, FaCalendarAlt, FaHistory, FaClock } from 'react-icons/fa';
 
-
-export function Home () {
+export function Home() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const { getEventsByDate, events } = useEvents();
-    
+
     const selectedDateEvents = getEventsByDate(selectedDate);
 
-    // Calcular estadísticas
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
+    const today = useMemo(() => {
+        const date = new Date();
+        date.setHours(0, 0, 0, 0);
+        return date;
+    }, []);
+
     const upcomingEvents = events.filter(event => {
         const eventDate = new Date(event.dia);
         eventDate.setHours(0, 0, 0, 0);
@@ -31,37 +32,12 @@ export function Home () {
     const todayEvents = getEventsByDate(today);
 
     const stats = [
-        {
-            id: 1,
-            title: 'Total Events',
-            value: events.length,
-            icon: <FaCalendarAlt />,
-            color: '#137FEC'
-        },
-        {
-            id: 2,
-            title: 'Upcoming Events',
-            value: upcomingEvents.length,
-            icon: <FaCalendarCheck />,
-            color: '#10B981'
-        },
-        {
-            id: 3,
-            title: 'Past Events',
-            value: pastEvents.length,
-            icon: <FaHistory />,
-            color: '#6B7280'
-        },
-        {
-            id: 4,
-            title: 'Today',
-            value: todayEvents.length,
-            icon: <FaClock />,
-            color: '#F59E0B'
-        }
+        { id: 1, title: 'Total Events',    value: events.length,         icon: <FaCalendarAlt />,   color: '#137FEC' },
+        { id: 2, title: 'Upcoming Events', value: upcomingEvents.length, icon: <FaCalendarCheck />, color: '#10B981' },
+        { id: 3, title: 'Past Events',     value: pastEvents.length,     icon: <FaHistory />,       color: '#6B7280' },
+        { id: 4, title: 'Today',           value: todayEvents.length,    icon: <FaClock />,         color: '#F59E0B' },
     ];
 
-    // Agregar o quitar clase según si hay eventos
     useEffect(() => {
         const mainContent = document.querySelector('.main-content');
         if (selectedDateEvents.length > 0) {
@@ -71,7 +47,6 @@ export function Home () {
         }
     }, [selectedDateEvents.length]);
 
-    // Función para marcar días con eventos
     const tileContent = ({ date, view }) => {
         if (view === 'month') {
             const dayEvents = getEventsByDate(date);

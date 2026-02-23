@@ -4,18 +4,15 @@ import './Events.css';
 
 export function Events() {
     const { events, deleteEvent } = useEvents();
-    const [filter, setFilter] = useState('all'); // all, upcoming, past
+    const [filter, setFilter] = useState('all');
 
     const now = new Date();
     now.setHours(0, 0, 0, 0);
 
     const filteredEvents = events.filter(event => {
         const eventDate = new Date(event.dia);
-        if (filter === 'upcoming') {
-            return eventDate >= now;
-        } else if (filter === 'past') {
-            return eventDate < now;
-        }
+        if (filter === 'upcoming') return eventDate >= now;
+        if (filter === 'past') return eventDate < now;
         return true;
     }).sort((a, b) => new Date(a.dia) - new Date(b.dia));
 

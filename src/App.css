@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 100vh;
+  overflow-y: auto;
 }
 
 .main-content.has-events {
@@ -28,12 +29,22 @@ body {
 }
 
 .main-content::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: #137FEC;
+  border-radius: 3px;
 }
 
 .main-content {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #137FEC transparent;
 }
 
 /* Responsive Layout */

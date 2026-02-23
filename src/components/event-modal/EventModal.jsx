@@ -1,45 +1,32 @@
 import { useState } from 'react';
 import './EventModal.css';
 
+const EMPTY_FORM = {
+    titulo: '',
+    dia: '',
+    descripcion: '',
+    horaInicio: '',
+    horaFin: '',
+};
+
 export function EventModal({ isOpen, onClose, onSubmit }) {
-    const [formData, setFormData] = useState({
-        titulo: '',
-        dia: '',
-        descripcion: '',
-        horaInicio: '',
-        horaFin: ''
-    });
+    const [formData, setFormData] = useState(EMPTY_FORM);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
+
+    const resetForm = () => setFormData(EMPTY_FORM);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(formData);
-        // Reset form
-        setFormData({
-            titulo: '',
-            dia: '',
-            descripcion: '',
-            horaInicio: '',
-            horaFin: ''
-        });
+        resetForm();
     };
 
     const handleCancel = () => {
-        // Reset form
-        setFormData({
-            titulo: '',
-            dia: '',
-            descripcion: '',
-            horaInicio: '',
-            horaFin: ''
-        });
+        resetForm();
         onClose();
     };
 

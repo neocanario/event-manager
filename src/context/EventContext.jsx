@@ -3,12 +3,10 @@ import { EventContext } from './eventContextInstance';
 
 export function EventProvider({ children }) {
     const [events, setEvents] = useState(() => {
-        // Cargar eventos desde localStorage al inicializar
         const savedEvents = localStorage.getItem('events');
         return savedEvents ? JSON.parse(savedEvents) : [];
     });
 
-    // Guardar eventos en localStorage cada vez que cambien
     useEffect(() => {
         localStorage.setItem('events', JSON.stringify(events));
     }, [events]);
@@ -17,7 +15,6 @@ export function EventProvider({ children }) {
         const newEvent = {
             ...event,
             id: Date.now(),
-            date: new Date(event.dia)
         };
         setEvents(prev => [...prev, newEvent]);
     };

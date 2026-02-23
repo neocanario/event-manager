@@ -39,7 +39,6 @@ export function Finances() {
                 <p className="finances-subtitle">Gestiona el presupuesto de tus eventos</p>
             </div>
 
-            {/* Resumen General */}
             <div className="finances-summary">
                 <div className="summary-card">
                     <h3>Presupuesto Total</h3>
@@ -57,7 +56,6 @@ export function Finances() {
                 </div>
             </div>
 
-            {/* Lista de Eventos con Finanzas */}
             <div className="finances-list">
                 <h2>Eventos</h2>
                 {events.length === 0 ? (

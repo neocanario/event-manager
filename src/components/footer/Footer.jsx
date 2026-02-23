@@ -55,7 +55,11 @@ export function Footer() {
                 <div className="footer-bottom">
                     <p className="footer-copyright">
                         © 2026 Event Manager. All rights reserved. 
-                        <span className="footer-legal"> | Privacy Policy | Cookies | Terms</span>
+                        <span className="footer-legal">
+                            {' | '}<Link to="/privacy-policy">Privacy Policy</Link>
+                            {' | '}<Link to="/cookies-policy">Cookies</Link>
+                            {' | '}<Link to="/terms-conditions">Terms</Link>
+                        </span>
                     </p>
                 </div>
             </div>
