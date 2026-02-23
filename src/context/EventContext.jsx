@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { EventContext } from './eventContextInstance';
+import { EventContext } from './event-context-instance';
 
 export function EventProvider({ children }) {
     const [events, setEvents] = useState(() => {
