@@ -27,7 +27,7 @@ export function Header () {
                             </Link>
                         </li>
                         <li className='user-profile'>
-                            <Link to="/events" className='nav-link'>
+                            <Link to="/finances" className='nav-link'>
                                 <FaUser className='nav-icon' />
                                 <span>Usuarios</span>
                             </Link>
