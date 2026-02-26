@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaRss, FaExternalLinkAlt, FaClock, FaNewspaper } from 'react-icons/fa';
+import { FaRss, FaExternalLinkAlt, FaNewspaper } from 'react-icons/fa';
 import './Rss.css';
 
 const RSS_FEEDS = [
@@ -8,51 +8,51 @@ const RSS_FEEDS = [
         name: 'Eventbrite Blog',
         url: 'https://www.eventbrite.com/blog/feed/',
         displayUrl: 'eventbrite.com/blog',
-        description: 'Tips, trends and news about event management and planning.',
-        category: 'Event Management',
+        description: 'Consejos, tendencias y noticias sobre gestión y planificación de eventos.',
+        category: 'Gestión de Eventos',
     },
     {
         id: 2,
         name: 'BizBash',
         url: 'https://www.bizbash.com/rss.xml',
         displayUrl: 'bizbash.com',
-        description: 'Ideas and resources for event and meeting professionals.',
-        category: 'Event Industry',
+        description: 'Ideas y recursos para profesionales de eventos y reuniones.',
+        category: 'Sector Eventos',
     },
     {
         id: 3,
         name: 'React Blog',
         url: 'https://react.dev/blog/rss.xml',
         displayUrl: 'react.dev/blog',
-        description: 'Official React blog with updates, releases and best practices.',
-        category: 'Technology',
+        description: 'Blog oficial de React con actualizaciones, versiones y buenas prácticas.',
+        category: 'Tecnología',
     },
     {
         id: 4,
         name: 'Smashing Magazine',
         url: 'https://www.smashingmagazine.com/feed/',
         displayUrl: 'smashingmagazine.com',
-        description: 'Web design and development articles, tutorials and inspiration.',
-        category: 'Technology',
+        description: 'Artículos, tutoriales e inspiración sobre diseño y desarrollo web.',
+        category: 'Tecnología',
     },
     {
         id: 5,
         name: 'Event Manager Blog',
         url: 'https://www.eventmanagerblog.com/feed',
         displayUrl: 'eventmanagerblog.com',
-        description: 'The latest news, tips and strategies for event professionals.',
-        category: 'Event Management',
+        description: 'Las últimas noticias, consejos y estrategias para profesionales de eventos.',
+        category: 'Gestión de Eventos',
     },
 ];
 
-const CATEGORIES = ['All', 'Event Management', 'Event Industry', 'Technology'];
+const CATEGORIES = ['Todos', 'Gestión de Eventos', 'Sector Eventos', 'Tecnología'];
 
 export function Rss() {
-    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [selectedCategory, setSelectedCategory] = useState('Todos');
     const [searchTerm, setSearchTerm] = useState('');
 
     const filteredFeeds = RSS_FEEDS.filter(feed => {
-        const matchesCategory = selectedCategory === 'All' || feed.category === selectedCategory;
+        const matchesCategory = selectedCategory === 'Todos' || feed.category === selectedCategory;
         const matchesSearch = feed.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             feed.description.toLowerCase().includes(searchTerm.toLowerCase());
         return matchesCategory && matchesSearch;
@@ -64,9 +64,9 @@ export function Rss() {
                 <div className="rss-title-group">
                     <FaRss className="rss-main-icon" />
                     <div>
-                        <h1>RSS Feeds</h1>
+                        <h1>Feeds RSS</h1>
                         <p className="rss-subtitle">
-                            Stay up to date with the latest news in event management and web development.
+                            Mantente al día con las últimas noticias sobre gestión de eventos y desarrollo web.
                         </p>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export function Rss() {
                 <input
                     type="text"
                     className="rss-search"
-                    placeholder="Search feeds..."
+                    placeholder="Buscar feeds..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -96,8 +96,8 @@ export function Rss() {
             <div className="rss-info-banner">
                 <FaNewspaper className="banner-icon" />
                 <p>
-                    Click on any feed to open it in your RSS reader or browser. You can also copy the URL
-                    and paste it into your favourite RSS reader like <strong>Feedly</strong>, <strong>Inoreader</strong> or <strong>NewsBlur</strong>.
+                    Haz clic en cualquier feed para abrirlo en tu lector RSS o navegador. También puedes copiar la URL
+                    y pegarla en tu lector favorito como <strong>Feedly</strong>, <strong>Inoreader</strong> o <strong>NewsBlur</strong>.
                 </p>
             </div>
 
@@ -105,7 +105,7 @@ export function Rss() {
                 {filteredFeeds.length === 0 ? (
                     <div className="rss-empty">
                         <FaRss />
-                        <p>No feeds found for your search.</p>
+                        <p>No se encontraron feeds para tu búsqueda.</p>
                     </div>
                 ) : (
                     filteredFeeds.map(feed => (
@@ -123,10 +123,10 @@ export function Rss() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="rss-card-link"
-                                    aria-label={`Open ${feed.name} RSS feed`}
+                                    aria-label={`Abrir feed RSS de ${feed.name}`}
                                 >
                                     <FaExternalLinkAlt />
-                                    <span>Open Feed</span>
+                                    <span>Abrir Feed</span>
                                 </a>
                             </div>
                         </div>
