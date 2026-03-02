@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import './EventModal.css';
-
-const EMPTY_FORM = {
-    titulo: '',
-    dia: '',
-    descripcion: '',
-    horaInicio: '',
-    horaFin: '',
-};
+import { EMPTY_FORM } from '../../information/event-form-data';
 
 function buildFormData(eventToEdit) {
     if (!eventToEdit) return EMPTY_FORM;
