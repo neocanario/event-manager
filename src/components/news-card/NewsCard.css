@@ -1,0 +1,112 @@
+.news-card {
+    background-color: #0F172A;
+    border: 2px solid #1E293B;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    border-color: #137FEC;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(19, 127, 236, 0.15);
+}
+
+.news-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news-category-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #137FEC22;
+    color: #137FEC;
+    border: 1px solid #137FEC55;
+    border-radius: 20px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tag-icon {
+    font-size: 0.7rem;
+}
+
+.news-card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.news-action-btn {
+    background-color: transparent;
+    border: 2px solid #1E293B;
+    border-radius: 8px;
+    padding: 0.35rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-edit-btn {
+    color: #137FEC;
+}
+
+.news-edit-btn:hover {
+    background-color: #137FEC;
+    color: #F0F0DB;
+    border-color: #137FEC;
+}
+
+.news-delete-btn {
+    color: #dc2626;
+}
+
+.news-delete-btn:hover {
+    background-color: #dc2626;
+    color: #F0F0DB;
+    border-color: #dc2626;
+}
+
+.news-card-title {
+    color: #F0F0DB;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.news-card-summary {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+.news-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #1E293B;
+}
+
+.news-card-source {
+    color: #137FEC;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.news-card-date {
+    color: #6B7280;
+    font-size: 0.8rem;
+}

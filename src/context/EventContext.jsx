@@ -23,6 +23,10 @@ export function EventProvider({ children }) {
         setEvents(prev => prev.filter(event => event.id !== id));
     };
 
+    const updateEvent = (id, updatedData) => {
+        setEvents(prev => prev.map(event => event.id === id ? { ...event, ...updatedData } : event));
+    };
+
     const getEventsByDate = (date) => {
         return events.filter(event => {
             const eventDate = new Date(event.dia);
@@ -31,7 +35,7 @@ export function EventProvider({ children }) {
     };
 
     return (
-        <EventContext.Provider value={{ events, addEvent, deleteEvent, getEventsByDate }}>
+        <EventContext.Provider value={{ events, addEvent, deleteEvent, updateEvent, getEventsByDate }}>
             {children}
         </EventContext.Provider>
     );

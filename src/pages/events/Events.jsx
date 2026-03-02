@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useEvents } from '../../hooks/useEvents';
+import { EventModal } from '../../components/event-modal/EventModal';
 import './Events.css';
 
 export function Events() {
-    const { events, deleteEvent } = useEvents();
+    const { events, deleteEvent, updateEvent } = useEvents();
     const [filter, setFilter] = useState('all');
+    const [editingEvent, setEditingEvent] = useState(null);
 
     const now = new Date();
     now.setHours(0, 0, 0, 0);
@@ -20,6 +22,15 @@ export function Events() {
         if (window.confirm('¿Estás seguro de que quieres eliminar este evento?')) {
             deleteEvent(id);
         }
+    };
+
+    const handleEdit = (event) => {
+        setEditingEvent(event);
+    };
+
+    const handleUpdate = (updatedData) => {
+        updateEvent(editingEvent.id, updatedData);
+        setEditingEvent(null);
     };
 
     const formatDate = (dateString) => {
@@ -71,13 +82,22 @@ export function Events() {
                         <div key={event.id} className="event-item">
                             <div className="event-item-header">
                                 <h3>{event.titulo}</h3>
-                                <button 
-                                    className="delete-btn"
-                                    onClick={() => handleDelete(event.id)}
-                                    aria-label="Eliminar evento"
-                                >
-                                    ×
-                                </button>
+                                <div className="event-item-actions">
+                                    <button
+                                        className="edit-btn"
+                                        onClick={() => handleEdit(event)}
+                                        aria-label="Editar evento"
+                                    >
+                                        ✏️
+                                    </button>
+                                    <button 
+                                        className="delete-btn"
+                                        onClick={() => handleDelete(event.id)}
+                                        aria-label="Eliminar evento"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
                             </div>
                             <div className="event-item-date">
                                 <span className="date-icon">📅</span>
@@ -94,6 +114,14 @@ export function Events() {
                     ))
                 )}
             </div>
+
+            <EventModal
+                key={editingEvent?.id ?? 'new'}
+                isOpen={Boolean(editingEvent)}
+                onClose={() => setEditingEvent(null)}
+                onSubmit={handleUpdate}
+                eventToEdit={editingEvent}
+            />
         </main>
     );
 }

@@ -9,8 +9,20 @@ const EMPTY_FORM = {
     horaFin: '',
 };
 
-export function EventModal({ isOpen, onClose, onSubmit }) {
-    const [formData, setFormData] = useState(EMPTY_FORM);
+function buildFormData(eventToEdit) {
+    if (!eventToEdit) return EMPTY_FORM;
+    return {
+        titulo: eventToEdit.titulo,
+        dia: eventToEdit.dia,
+        descripcion: eventToEdit.descripcion || '',
+        horaInicio: eventToEdit.horaInicio,
+        horaFin: eventToEdit.horaFin,
+    };
+}
+
+export function EventModal({ isOpen, onClose, onSubmit, eventToEdit }) {
+    const [formData, setFormData] = useState(() => buildFormData(eventToEdit));
+    const isEditing = Boolean(eventToEdit);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,7 +47,7 @@ export function EventModal({ isOpen, onClose, onSubmit }) {
     return (
         <div className="modal-overlay" onClick={handleCancel}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <h2 className="modal-title">Crear Nuevo Evento</h2>
+                <h2 className="modal-title">{isEditing ? 'Editar Evento' : 'Crear Nuevo Evento'}</h2>
                 
                 <form onSubmit={handleSubmit} className="event-form">
                     <div className="form-group">
@@ -106,7 +118,7 @@ export function EventModal({ isOpen, onClose, onSubmit }) {
                             Cancelar
                         </button>
                         <button type="submit" className="btn-confirm">
-                            Crear Evento
+                            {isEditing ? 'Guardar Cambios' : 'Crear Evento'}
                         </button>
                     </div>
                 </form>

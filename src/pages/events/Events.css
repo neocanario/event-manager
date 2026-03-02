@@ -130,6 +130,32 @@
     transform: rotate(90deg);
 }
 
+.event-item-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.edit-btn {
+    background-color: transparent;
+    border: 2px solid #137FEC;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.edit-btn:hover {
+    background-color: #137FEC;
+    transform: scale(1.1);
+}
+
 .event-item-date,
 .event-item-time {
     display: flex;
