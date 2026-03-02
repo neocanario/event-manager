@@ -1,44 +1,7 @@
 import { useState } from 'react';
 import { FaRss, FaExternalLinkAlt, FaNewspaper } from 'react-icons/fa';
 import './Rss.css';
-
-const RSS_FEEDS = [
-    {
-        id: 1,
-        name: 'Eventbrite Blog',
-        url: 'https://www.eventbrite.com/blog/',
-        displayUrl: 'eventbrite.com/blog',
-        description: 'Consejos, tendencias y noticias sobre gestión y planificación de eventos.',
-        category: 'Gestión de Eventos',
-    },
-    {
-        id: 2,
-        name: 'BizBash',
-        url: 'https://www.bizbash.com',
-        displayUrl: 'bizbash.com',
-        description: 'Ideas y recursos para profesionales de eventos y reuniones.',
-        category: 'Sector Eventos',
-    },
-    {
-        id: 3,
-        name: 'React Blog',
-        url: 'https://react.dev/blog',
-        displayUrl: 'react.dev/blog',
-        description: 'Blog oficial de React con actualizaciones, versiones y buenas prácticas.',
-        category: 'Tecnología',
-    },
-    {
-        id: 4,
-        name: 'Smashing Magazine',
-        url: 'https://www.smashingmagazine.com',
-        displayUrl: 'smashingmagazine.com',
-        description: 'Artículos, tutoriales e inspiración sobre diseño y desarrollo web.',
-        category: 'Tecnología',
-    },
-    
-];
-
-const CATEGORIES = ['Todos', 'Gestión de Eventos', 'Sector Eventos', 'Tecnología'];
+import { RSS_FEEDS, RSS_CATEGORIES } from '../../information/rss-data';
 
 export function Rss() {
     const [selectedCategory, setSelectedCategory] = useState('Todos');
@@ -74,7 +37,7 @@ export function Rss() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <div className="rss-categories">
-                    {CATEGORIES.map(category => (
+                    {RSS_CATEGORIES.map(category => (
                         <button
                             key={category}
                             className={`rss-category-btn ${selectedCategory === category ? 'active' : ''}`}
