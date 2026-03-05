@@ -5,6 +5,71 @@
     margin: 0 auto;
 }
 
+/* Featured RSS block */
+.rss-featured {
+    background-color: #0F172A;
+    border: 2px solid #FF6B35;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rss-featured-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #FF6B35;
+}
+
+.rss-featured-icon {
+    font-size: 0.9rem;
+}
+
+.rss-featured-description {
+    color: #9CA3AF;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.rss-featured-description strong {
+    color: #F0F0DB;
+}
+
+.rss-featured-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    color: #FF6B35;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: monospace;
+    word-break: break-all;
+    transition: all 0.2s ease;
+}
+
+.rss-featured-link:hover {
+    background-color: rgba(255, 107, 53, 0.2);
+    border-color: #FF6B35;
+    color: #F0F0DB;
+}
+
+.rss-featured-external {
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
 /* Loading */
 .rss-loading {
     display: flex;

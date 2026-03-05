@@ -1,38 +1,39 @@
 import { useState } from 'react';
-import { FaRss, FaExternalLinkAlt, FaNewspaper } from 'react-icons/fa';
+import { FaRss, FaExternalLinkAlt, FaNewspaper, FaCode } from 'react-icons/fa';
 import './Rss.css';
 
 const RSS_FEEDS = [
+    
     {
         id: 1,
-        name: 'Eventbrite Blog',
-        url: 'https://www.eventbrite.com/blog/',
-        displayUrl: 'eventbrite.com/blog',
-        description: 'Consejos, tendencias y noticias sobre gestión y planificación de eventos.',
-        category: 'Gestión de Eventos',
-    },
-    {
-        id: 2,
         name: 'BizBash',
-        url: 'https://www.bizbash.com',
-        displayUrl: 'bizbash.com',
+        rssUrl: 'https://www.bizbash.com/rss.xml',
+        displayUrl: 'bizbash.com/rss.xml',
         description: 'Ideas y recursos para profesionales de eventos y reuniones.',
         category: 'Sector Eventos',
     },
     {
-        id: 3,
+        id: 2,
         name: 'React Blog',
-        url: 'https://react.dev/blog',
-        displayUrl: 'react.dev/blog',
+        rssUrl: 'https://react.dev/rss.xml',
+        displayUrl: 'react.dev/rss.xml',
         description: 'Blog oficial de React con actualizaciones, versiones y buenas prácticas.',
         category: 'Tecnología',
     },
     {
-        id: 4,
+        id: 3,
         name: 'Smashing Magazine',
-        url: 'https://www.smashingmagazine.com',
-        displayUrl: 'smashingmagazine.com',
+        rssUrl: 'https://www.smashingmagazine.com/feed/',
+        displayUrl: 'smashingmagazine.com/feed/',
         description: 'Artículos, tutoriales e inspiración sobre diseño y desarrollo web.',
+        category: 'Tecnología',
+    },
+    {
+        id: 4,
+        name: 'CSS-Tricks',
+        rssUrl: 'https://css-tricks.com/feed/',
+        displayUrl: 'css-tricks.com/feed/',
+        description: 'Trucos, técnicas y artículos sobre CSS y desarrollo front-end.',
         category: 'Tecnología',
     },
 ];
@@ -64,6 +65,26 @@ export function Rss() {
                 </div>
             </div>
 
+            <div className="rss-featured">
+                <div className="rss-featured-label">
+                    <FaRss className="rss-featured-icon" />
+                    <span>Feed RSS principal de este proyecto</span>
+                </div>
+                <p className="rss-featured-description">
+                    Accede al fichero RSS de <strong>Eventbrite Blog</strong>, fuente principal de noticias sobre gestión de eventos:
+                </p>
+                <a
+                    href="https://www.eventbrite.com/blog/feed/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rss-featured-link"
+                >
+                    <FaCode />
+                    <span>https://www.eventbrite.com/blog/feed/</span>
+                    <FaExternalLinkAlt className="rss-featured-external" />
+                </a>
+            </div>
+
             <div className="rss-controls">
                 <input
                     type="text"
@@ -88,8 +109,8 @@ export function Rss() {
             <div className="rss-info-banner">
                 <FaNewspaper className="banner-icon" />
                 <p>
-                    Haz clic en cualquier feed para abrirlo en tu lector RSS o navegador. También puedes copiar la URL
-                    y pegarla en tu lector favorito como <strong>Feedly</strong>, <strong>Inoreader</strong> o <strong>NewsBlur</strong>.
+                    Haz clic en <strong>Abrir Feed</strong> para ver el fichero RSS en bruto (XML). Puedes pegarlo en tu lector
+                    favorito como <strong>Feedly</strong>, <strong>Inoreader</strong> o <strong>NewsBlur</strong>.
                 </p>
             </div>
 
@@ -111,7 +132,7 @@ export function Rss() {
                             <div className="rss-card-footer">
                                 <span className="rss-card-url">{feed.displayUrl}</span>
                                 <a
-                                    href={feed.url}
+                                    href={feed.rssUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="rss-card-link"
