@@ -4,14 +4,19 @@ import 'react-calendar/dist/Calendar.css';
 import './Home.css';
 import { useEvents } from '../../hooks/useEvents';
 import { NewsCard } from '../../components/news-card/NewsCard';
-import { FaCalendarCheck, FaCalendarAlt, FaHistory, FaClock, FaPlus, FaTimes } from 'react-icons/fa';
+import { FaCalendarCheck, FaCalendarAlt, FaHistory, FaClock, FaPlus, FaTimes, FaCheck, FaTrash } from 'react-icons/fa';
 import { INITIAL_NEWS, NEWS_CATEGORIES, EMPTY_ARTICLE } from '../../information/news-data';
+import { db } from '../../fireabse';
+import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 
 export function Home() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const { getEventsByDate, events } = useEvents();
 
-    const [news, setNews] = useState(INITIAL_NEWS);
+    const [tasks, setTasks] = useState([]);
+    const [taskInput, setTaskInput] = useState('');
+
+    const [news, setNews] = useState([]);
     const [newsCategory, setNewsCategory] = useState('Todas');
     const [newsSearch, setNewsSearch] = useState('');
     const [isNewsFormOpen, setIsNewsFormOpen] = useState(false);
@@ -48,6 +53,46 @@ export function Home() {
         { id: 3, title: 'Past Events',     value: pastEvents.length,     icon: <FaHistory />,       color: '#6B7280' },
         { id: 4, title: 'Today',           value: todayEvents.length,    icon: <FaClock />,         color: '#F59E0B' },
     ];
+
+    useEffect(() => {
+        const tasksCollection = collection(db, 'tasks');
+        const unsubscribe = onSnapshot(tasksCollection, (snapshot) => {
+            const tasksData = snapshot.docs.map(docSnap => ({ ...docSnap.data(), id: docSnap.id }));
+            setTasks(tasksData);
+        });
+        return () => unsubscribe();
+    }, []);
+
+    const handleAddTask = async (e) => {
+        e.preventDefault();
+        if (!taskInput.trim()) return;
+        await addDoc(collection(db, 'tasks'), { text: taskInput.trim(), done: false });
+        setTaskInput('');
+    };
+
+    const handleToggleTask = async (task) => {
+        await updateDoc(doc(db, 'tasks', task.id), { done: !task.done });
+    };
+
+    const handleDeleteTask = async (id) => {
+        await deleteDoc(doc(db, 'tasks', id));
+    };
+
+    useEffect(() => {
+        const newsCollection = collection(db, 'news');
+        const unsubscribe = onSnapshot(newsCollection, async (snapshot) => {
+            if (snapshot.empty) {
+                for (const article of INITIAL_NEWS) {
+                    const { id, ...articleData } = article;
+                    await addDoc(newsCollection, articleData);
+                }
+            } else {
+                const newsData = snapshot.docs.map(docSnap => ({ ...docSnap.data(), id: docSnap.id }));
+                setNews(newsData);
+            }
+        });
+        return () => unsubscribe();
+    }, []);
 
     useEffect(() => {
         const mainContent = document.querySelector('.main-content');
@@ -100,19 +145,19 @@ export function Home() {
         setArticleForm(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleArticleSubmit = (e) => {
+    const handleArticleSubmit = async (e) => {
         e.preventDefault();
         if (isEditingArticle) {
-            setNews(prev => prev.map(a => a.id === editingArticle.id ? { ...a, ...articleForm } : a));
+            await updateDoc(doc(db, 'news', editingArticle.id), articleForm);
         } else {
-            setNews(prev => [...prev, { ...articleForm, id: Date.now() }]);
+            await addDoc(collection(db, 'news'), articleForm);
         }
         closeNewsForm();
     };
 
-    const handleDeleteArticle = (id) => {
+    const handleDeleteArticle = async (id) => {
         if (window.confirm('¿Eliminar esta noticia?')) {
-            setNews(prev => prev.filter(a => a.id !== id));
+            await deleteDoc(doc(db, 'news', id));
         }
     };
 
@@ -166,6 +211,58 @@ export function Home() {
                             </div>
                         ))}
                     </div>
+                )}
+            </section>
+
+            {/* Tasks Section */}
+            <section className='tasks-section'>
+                <div className='tasks-header'>
+                    <div>
+                        <h2 className='tasks-title'>Tareas rápidas</h2>
+                        <p className='tasks-subtitle'>Anota pendientes y márcalos como completados</p>
+                    </div>
+                </div>
+
+                <form className='task-form' onSubmit={handleAddTask}>
+                    <input
+                        type='text'
+                        className='task-input'
+                        placeholder='Nueva tarea...'
+                        value={taskInput}
+                        onChange={(e) => setTaskInput(e.target.value)}
+                    />
+                    <button type='submit' className='task-add-btn'>
+                        <FaPlus />
+                        <span>Añadir</span>
+                    </button>
+                </form>
+
+                {tasks.length === 0 ? (
+                    <div className='tasks-empty'>
+                        <p>No hay tareas. ¡Añade una!</p>
+                    </div>
+                ) : (
+                    <ul className='tasks-list'>
+                        {tasks.map(task => (
+                            <li key={task.id} className={`task-item ${task.done ? 'task-done' : ''}`}>
+                                <button
+                                    className={`task-check-btn ${task.done ? 'checked' : ''}`}
+                                    onClick={() => handleToggleTask(task)}
+                                    aria-label='Completar tarea'
+                                >
+                                    {task.done && <FaCheck />}
+                                </button>
+                                <span className='task-text'>{task.text}</span>
+                                <button
+                                    className='task-delete-btn'
+                                    onClick={() => handleDeleteTask(task.id)}
+                                    aria-label='Eliminar tarea'
+                                >
+                                    <FaTrash />
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 )}
             </section>
 
