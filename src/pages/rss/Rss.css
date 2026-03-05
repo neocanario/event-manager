@@ -5,6 +5,39 @@
     margin: 0 auto;
 }
 
+/* Loading */
+.rss-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 300px;
+    color: #9CA3AF;
+    font-size: 1rem;
+}
+
+.rss-loading-icon {
+    font-size: 3rem;
+    color: #FF6B35;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Error */
+.rss-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: #EF4444;
+    font-size: 1rem;
+}
+
 /* Header */
 .rss-header {
     margin-bottom: 2rem;
