@@ -7,6 +7,10 @@ A comprehensive web application for managing and organizing events with an integ
 ![Firebase](https://img.shields.io/badge/Firebase-12.9.0-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+## 🌐 Live Demo
+
+**[https://event-manager-69e90.web.app/](https://event-manager-69e90.web.app/)**
+
 ## 📋 Description
 
 Event Manager is a modern, responsive web application designed to help users efficiently organize and manage their events. The platform provides an intuitive interface for creating, viewing, and tracking events, along with integrated financial management capabilities and a curated RSS feed section powered by Firebase Realtime Database.
