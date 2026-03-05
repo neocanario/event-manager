@@ -83,7 +83,7 @@ export function Home() {
         const unsubscribe = onSnapshot(newsCollection, async (snapshot) => {
             if (snapshot.empty) {
                 for (const article of INITIAL_NEWS) {
-                    const { id, ...articleData } = article;
+                    const { id: _id, ...articleData } = article;
                     await addDoc(newsCollection, articleData);
                 }
             } else {
