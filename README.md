@@ -109,7 +109,11 @@ event-manager/
 │   │   ├── legal/      # Legal pages (Privacy, Cookies, Terms)
 │   │   └── rss/        # RSS feeds page (Firebase Realtime Database)
 │   ├── services/
-│   │   └── firebase.js # Firebase configuration
+│   │   ├── newsService.js  # Firebase CRUD for news collection
+│   │   └── taskService.js  # Firebase CRUD for tasks collection
+│   ├── utils/
+│   │   ├── file-import.js  # CSV/XML/JSON import logic
+│   │   └── file-export.js  # CSV/XML/JSON export logic
 │   ├── App.jsx         # Main app component
 │   ├── App.css         # Global styles
 │   ├── index.css       # Root styles
@@ -128,6 +132,7 @@ event-manager/
 - ✅ **Event Management**: View, filter and delete events with ease
 - ✅ **Financial Tracking**: Manage budgets and expenses per event
 - ✅ **RSS Feeds**: Curated RSS feed directory loaded from Firebase Realtime Database with category filtering
+- ✅ **Import / Export**: Import and export news data in JSON, CSV and XML formats with Firebase persistence
 - ✅ **Legal Pages**: Privacy Policy, Cookies Policy and Terms & Conditions
 - ✅ **Data Persistence**: Events automatically saved in browser's LocalStorage
 - ✅ **Responsive Design**: Fully responsive — works seamlessly on mobile, tablet, and desktop
@@ -139,6 +144,7 @@ event-manager/
 - **Events** (`/events`) - Complete list of all events with filter capabilities
 - **Finances** (`/finances`) - Budget and expense tracking for all events
 - **RSS Feeds** (`/rss`) - Curated RSS feeds loaded from Firebase, filterable by category
+- **Import / Export** (`/import-export`) - Import and export news data in JSON, CSV and XML formats
 - **Privacy Policy** (`/privacy-policy`) - Privacy policy page
 - **Cookies Policy** (`/cookies-policy`) - Cookies policy page
 - **Terms & Conditions** (`/terms-conditions`) - Terms and conditions page
@@ -166,7 +172,9 @@ event-manager/
 - **React Router DOM 7.13.0** - Declarative client-side routing
 - **React Calendar 6.0.0** - Interactive calendar component
 - **React Icons 5.5.0** - Comprehensive icon library
-- **Firebase 12.9.0** - Realtime Database for RSS feed data
+- **Firebase 12.9.0** - Firestore for news, tasks and RSS feed data
+- **PapaParse 5.5.3** - CSV parsing and generation
+- **show-open-file-picker** - Native file open/save dialog API
 - **CSS3** - Modern styling with Flexbox and Grid layouts
 - **LocalStorage API** - Persistent data storage in browser
 
@@ -176,11 +184,39 @@ The following screenshot shows a RSS feed reader (Feedly) displaying items from 
 
 > ⚠️ **TODO:** Add screenshot here — take a screenshot of Feedly/Inoreader showing the Eventbrite RSS feed (https://www.eventbrite.com/blog/feed/) with articles pointing to https://event-manager-69e90.web.app/
 
+## 📥📤 Import / Export
+
+The application supports importing and exporting news data in three formats: **JSON**, **CSV** and **XML**.
+
+### Sample import files
+
+Download these example files to test the import feature:
+
+- [datos.json](https://raw.githubusercontent.com/neocanario/event-manager/main/public/datos.json)
+- [datos.csv](https://raw.githubusercontent.com/neocanario/event-manager/main/public/datos.csv)
+- [datos.xml](https://raw.githubusercontent.com/neocanario/event-manager/main/public/datos.xml)
+
+### How to import
+
+1. Navigate to **Import / Export** in the sidebar.
+2. Click **Seleccionar archivo** and choose a `.json`, `.csv` or `.xml` file.
+3. Review the data preview table.
+4. Click **Guardar en Firebase** to save the records to Firestore.
+
+### How to export
+
+1. Navigate to **Import / Export** in the sidebar.
+2. Click **Exportar JSON**, **Exportar CSV** or **Exportar XML**.
+3. A native save dialog will open — choose a location and save the file.
+
+> Data is read dynamically from Firebase at export time, so the exported file always reflects the current state of the database.
+
 ## 🌿 Branch Strategy
 
 | Branch | Description |
 |--------|-------------|
-| `main` | Latest stable version (Tercera Entrega) |
+| `main` | Latest stable version |
+| `feature/import-and-export` | Import/Export feature branch (UT5) |
 | `TerceraEntrega` | Third delivery snapshot |
 | `SegundaEntrega` | Second delivery snapshot |
 | `develop` | Development branch |

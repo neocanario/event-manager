@@ -3,6 +3,7 @@ import { useState } from "react";
 import './Sidebar.css';
 import { EventModal } from "../event-modal/EventModal";
 import { useEvents } from "../../hooks/useEvents";
+import { FaFileImport } from 'react-icons/fa';
 
 export function Sidebar () {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,6 +26,7 @@ export function Sidebar () {
                             <li><Link to="/">Dashboard</Link></li>
                             <li><Link to="/events">Events</Link></li>
                             <li><Link to="/finances">Finances</Link></li>
+                            <li><Link to="/import-export"><FaFileImport style={{marginRight: '6px'}} />Import / Export</Link></li>
                         </ul>
                     </nav>
                 </div>

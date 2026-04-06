@@ -6,8 +6,8 @@ import { useEvents } from '../../hooks/useEvents';
 import { NewsCard } from '../../components/news-card/NewsCard';
 import { FaCalendarCheck, FaCalendarAlt, FaHistory, FaClock, FaPlus, FaTimes, FaCheck, FaTrash } from 'react-icons/fa';
 import { INITIAL_NEWS, NEWS_CATEGORIES, EMPTY_ARTICLE } from '../../information/news-data';
-import { db } from '../../fireabse';
-import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import { subscribeToTasks, addTask, updateTask, deleteTask } from '../../services/taskService';
+import { subscribeToNews, addNewsItem, updateNewsItem, deleteNewsItem, addNewsBatch } from '../../services/newsService';
 
 export function Home() {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -55,39 +55,30 @@ export function Home() {
     ];
 
     useEffect(() => {
-        const tasksCollection = collection(db, 'tasks');
-        const unsubscribe = onSnapshot(tasksCollection, (snapshot) => {
-            const tasksData = snapshot.docs.map(docSnap => ({ ...docSnap.data(), id: docSnap.id }));
-            setTasks(tasksData);
-        });
+        const unsubscribe = subscribeToTasks(setTasks);
         return () => unsubscribe();
     }, []);
 
     const handleAddTask = async (e) => {
         e.preventDefault();
         if (!taskInput.trim()) return;
-        await addDoc(collection(db, 'tasks'), { text: taskInput.trim(), done: false });
+        await addTask({ text: taskInput.trim(), done: false });
         setTaskInput('');
     };
 
     const handleToggleTask = async (task) => {
-        await updateDoc(doc(db, 'tasks', task.id), { done: !task.done });
+        await updateTask(task.id, { done: !task.done });
     };
 
     const handleDeleteTask = async (id) => {
-        await deleteDoc(doc(db, 'tasks', id));
+        await deleteTask(id);
     };
 
     useEffect(() => {
-        const newsCollection = collection(db, 'news');
-        const unsubscribe = onSnapshot(newsCollection, async (snapshot) => {
-            if (snapshot.empty) {
-                for (const article of INITIAL_NEWS) {
-                    const { id: _id, ...articleData } = article;
-                    await addDoc(newsCollection, articleData);
-                }
+        const unsubscribe = subscribeToNews(async (newsData) => {
+            if (newsData.length === 0) {
+                await addNewsBatch(INITIAL_NEWS);
             } else {
-                const newsData = snapshot.docs.map(docSnap => ({ ...docSnap.data(), id: docSnap.id }));
                 setNews(newsData);
             }
         });
@@ -148,16 +139,16 @@ export function Home() {
     const handleArticleSubmit = async (e) => {
         e.preventDefault();
         if (isEditingArticle) {
-            await updateDoc(doc(db, 'news', editingArticle.id), articleForm);
+            await updateNewsItem(editingArticle.id, articleForm);
         } else {
-            await addDoc(collection(db, 'news'), articleForm);
+            await addNewsItem(articleForm);
         }
         closeNewsForm();
     };
 
     const handleDeleteArticle = async (id) => {
         if (window.confirm('¿Eliminar esta noticia?')) {
-            await deleteDoc(doc(db, 'news', id));
+            await deleteNewsItem(id);
         }
     };
 

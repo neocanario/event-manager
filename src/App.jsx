@@ -11,6 +11,7 @@ import { PrivacyPolicy } from './pages/legal/PrivacyPolicy';
 import { CookiesPolicy } from './pages/legal/CookiesPolicy';
 import { TermsConditions } from './pages/legal/TermsConditions';
 import { Rss } from './pages/rss/Rss';
+import { ImportExport } from './pages/import-export/ImportExport';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/cookies-policy" element={<CookiesPolicy />} />
                 <Route path="/terms-conditions" element={<TermsConditions />} />
                 <Route path="/rss" element={<Rss />} />
+                <Route path="/import-export" element={<ImportExport />} />
               </Routes>
               <Footer />
             </div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<news>
+  <item>
+    <title>El futuro de los eventos híbridos en 2026</title>
+    <summary>Los eventos híbridos combinan la presencia física y virtual para ampliar el alcance de las organizaciones y ofrecer experiencias más accesibles a nivel global.</summary>
+    <category>Tendencias</category>
+    <source>EventBrite Blog</source>
+    <date>2026-04-01</date>
+  </item>
+  <item>
+    <title>Inteligencia artificial aplicada a la gestión de eventos</title>
+    <summary>Las herramientas de IA permiten automatizar tareas repetitivas, personalizar la experiencia del asistente y optimizar la logística de grandes eventos.</summary>
+    <category>Tecnología</category>
+    <source>TechCrunch</source>
+    <date>2026-03-28</date>
+  </item>
+  <item>
+    <title>Eventos sostenibles: cómo reducir la huella de carbono</title>
+    <summary>Cada vez más organizadores optan por materiales reciclados, catering de proximidad y sistemas de compensación de CO₂ para hacer sus eventos más sostenibles.</summary>
+    <category>Sostenibilidad</category>
+    <source>GreenEvents</source>
+    <date>2026-03-15</date>
+  </item>
+</news>
